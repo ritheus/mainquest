@@ -12,4 +12,5 @@
     <string name="daily_quests_title">Daily Quests</string>
     <string name="character_title">Character Sheet</string>
     <string name="no_mission_statement_placeholder">Write your personal mission statement! You can improve it anytime.</string>
+    <string name="edit">Edit</string>
 </resources>

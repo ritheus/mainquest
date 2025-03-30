@@ -17,8 +17,11 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -33,6 +36,7 @@ fun MainQuestScreen(viewModel: MainQuestViewModel = viewModel()) {
     val savedText = viewModel.savedMissionText.collectAsState().value
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
+    var isEditing by remember { mutableStateOf(false) }
 
     Scaffold(
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
@@ -56,28 +60,38 @@ fun MainQuestScreen(viewModel: MainQuestViewModel = viewModel()) {
                     .padding(bottom = 16.dp)
             )
 
-            MissionInputField(
-                value = editableText,
-                onValueChange = { viewModel.updateText(it) }
-            )
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
-                val savedMessage = stringResource(R.string.snackbar_saved)
-                Button(onClick = {
-                    viewModel.save()
-                    scope.launch {
-                        snackbarHostState.showSnackbar(message = savedMessage)
-                    }
-                }) {
-                    Text(stringResource(R.string.save))
+            if (!isEditing) {
+                Button(onClick = { isEditing = true }) {
+                    Text(stringResource(R.string.edit))
                 }
+            }
 
-                OutlinedButton(onClick = {
-                    viewModel.cancelEdit()
-                }) {
-                    Text(stringResource(R.string.cancel))
+            if (isEditing) {
+                MissionInputField(
+                    value = editableText,
+                    onValueChange = { viewModel.updateText(it) }
+                )
+
+                Spacer(modifier = Modifier.height(24.dp))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(16.dp)) {
+                    val savedMessage = stringResource(R.string.snackbar_saved)
+                    Button(onClick = {
+                        viewModel.save()
+                        isEditing = false
+                        scope.launch {
+                            snackbarHostState.showSnackbar(message = savedMessage)
+                        }
+                    }) {
+                        Text(stringResource(R.string.save))
+                    }
+
+                    OutlinedButton(onClick = {
+                        viewModel.cancelEdit()
+                        isEditing = false
+                    }) {
+                        Text(stringResource(R.string.cancel))
+                    }
                 }
             }
         }
