@@ -29,7 +29,8 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun MainQuestScreen(viewModel: MainQuestViewModel = viewModel()) {
-    val missionText = viewModel.missionText.collectAsState().value
+    val editableText = viewModel.missionText.collectAsState().value
+    val savedText = viewModel.savedMissionText.collectAsState().value
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -47,8 +48,16 @@ fun MainQuestScreen(viewModel: MainQuestViewModel = viewModel()) {
             Text(stringResource(R.string.main_quest_title), fontSize = 24.sp)
             Spacer(modifier = Modifier.height(16.dp))
 
+            Text(
+                text = if (savedText.isBlank()) stringResource(R.string.no_mission_statement_placeholder) else savedText,
+                fontSize = 14.sp,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(bottom = 16.dp)
+            )
+
             OutlinedTextField(
-                value = missionText,
+                value = editableText,
                 onValueChange = { viewModel.updateText(it) },
                 modifier = Modifier
                     .fillMaxWidth()
@@ -72,7 +81,7 @@ fun MainQuestScreen(viewModel: MainQuestViewModel = viewModel()) {
                 }
 
                 OutlinedButton(onClick = {
-                    viewModel.clearText()
+                    viewModel.cancelEdit()
                 }) {
                     Text("Cancel")
                 }

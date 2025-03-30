@@ -10,28 +10,37 @@ import kotlinx.coroutines.launch
 
 class MainQuestViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val _missionText = MutableStateFlow("")
-    val missionText: StateFlow<String> = _missionText
+    private val _savedMissionText = MutableStateFlow("") // dauerhaft gespeicherter Text
+    val savedMissionText: StateFlow<String> = _savedMissionText
+
+    private val _editableText = MutableStateFlow("")     // gerade im Textfeld
+    val missionText: StateFlow<String> = _editableText
 
     init {
         viewModelScope.launch {
             MissionPrefs.getMissionStatement(application.applicationContext).collect {
-                _missionText.value = it
+                _savedMissionText.value = it
+                _editableText.value = it
             }
         }
     }
 
     fun updateText(newText: String) {
-        _missionText.value = newText
+        _editableText.value = newText
     }
 
-    fun clearText() {
-        _missionText.value = ""
+    fun cancelEdit() {
+        _editableText.value = _savedMissionText.value
     }
 
     fun save() {
         viewModelScope.launch {
-            MissionPrefs.saveMissionStatement(getApplication<Application>().applicationContext, _missionText.value)
+            val text = _editableText.value
+            MissionPrefs.saveMissionStatement(
+                getApplication<Application>().applicationContext,
+                text
+            )
+            _savedMissionText.value = text
         }
     }
 }

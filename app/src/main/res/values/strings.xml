@@ -11,4 +11,5 @@
     <string name="side_quests_title">Side Quests</string>
     <string name="daily_quests_title">Daily Quests</string>
     <string name="character_title">Character Sheet</string>
+    <string name="no_mission_statement_placeholder">Write your personal mission statement! You can improve it anytime.</string>
 </resources>
