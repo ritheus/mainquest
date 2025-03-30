@@ -56,15 +56,9 @@ fun MainQuestScreen(viewModel: MainQuestViewModel = viewModel()) {
                     .padding(bottom = 16.dp)
             )
 
-            OutlinedTextField(
+            MissionInputField(
                 value = editableText,
-                onValueChange = { viewModel.updateText(it) },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp),
-                label = { Text(stringResource(R.string.hint_mission)) },
-                singleLine = false,
-                maxLines = 10
+                onValueChange = { viewModel.updateText(it) }
             )
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -83,9 +77,27 @@ fun MainQuestScreen(viewModel: MainQuestViewModel = viewModel()) {
                 OutlinedButton(onClick = {
                     viewModel.cancelEdit()
                 }) {
-                    Text("Cancel")
+                    Text(stringResource(R.string.cancel))
                 }
             }
         }
     }
+}
+
+@Composable
+fun MissionInputField(
+    value: String,
+    onValueChange: (String) -> Unit,
+    modifier: Modifier = Modifier
+) {
+    OutlinedTextField(
+        value = value,
+        onValueChange = onValueChange,
+        modifier = modifier
+            .fillMaxWidth()
+            .height(200.dp),
+        label = { Text(stringResource(R.string.hint_mission)) },
+        singleLine = false,
+        maxLines = 10
+    )
 }
