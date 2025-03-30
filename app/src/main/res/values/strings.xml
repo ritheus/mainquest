@@ -13,4 +13,9 @@
     <string name="character_title">Character Sheet</string>
     <string name="no_mission_statement_placeholder">Write your personal mission statement! You can improve it anytime.</string>
     <string name="edit">Edit</string>
+    <string name="add_sidequest">New Side Quest</string>
+    <string name="quest_reward">Reward: %1$d XP</string>
+    <string name="add_dailyquest">New Daily Quest</string>
+
+
 </resources>
