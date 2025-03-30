@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.mainquest.mainquest"
+    namespace = "com.mainquest.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.mainquest.mainquest"
+        applicationId = "com.mainquest.app"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.material.icons.extended)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.datastore.preferences)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

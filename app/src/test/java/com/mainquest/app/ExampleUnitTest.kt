@@ -1,4 +1,4 @@
-package com.mainquest.mainquest
+package com.mainquest.app
 
 import org.junit.Test
 

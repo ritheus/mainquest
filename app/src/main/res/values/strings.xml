@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Main Quest</string>
+    <string name="hint_mission">Write your personal mission statement!</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="snackbar_saved">Mission Statement saved!</string>
+    <string name="bottomnav_todo">ToDos</string>
+    <string name="bottomnav_history">History</string>
+    <string name="back_to_main_quest">Back to why I do this</string>
+    <string name="main_quest_title">Main Quest</string>
+    <string name="side_quests_title">Side Quests</string>
+    <string name="daily_quests_title">Daily Quests</string>
+    <string name="character_title">Character Sheet</string>
 </resources>

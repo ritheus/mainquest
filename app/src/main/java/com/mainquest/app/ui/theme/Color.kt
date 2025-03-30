@@ -1,4 +1,4 @@
-package com.mainquest.mainquest.ui.theme
+package com.mainquest.app.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

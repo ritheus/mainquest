@@ -1,4 +1,4 @@
-package com.mainquest.mainquest.ui.navigation
+package com.mainquest.app.ui.navigation
 
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
