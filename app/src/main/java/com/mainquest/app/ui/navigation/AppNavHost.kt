@@ -8,8 +8,8 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.mainquest.app.ui.screen.CharacterScreen
 import com.mainquest.app.ui.screen.DailyQuestsScreen
-import com.mainquest.app.ui.screen.HistoryScreen
 import com.mainquest.app.ui.screen.MainQuestScreen
 import com.mainquest.app.ui.screen.SideQuestsScreen
 
@@ -49,7 +49,7 @@ fun AppNavHost() {
                 )
             }
             composable(BottomNavItem.History.route) {
-                HistoryScreen(
+                CharacterScreen(
                     onNavigateToMainQuest = { navController.navigate(BottomNavItem.MainQuest.route) }
                 )
             }

@@ -16,6 +16,8 @@
     <string name="add_sidequest">New Side Quest</string>
     <string name="quest_reward">Reward: %1$d XP</string>
     <string name="add_dailyquest">New Daily Quest</string>
+    <string name="back">Back</string>
+    <string name="xp_display">XP: %1$d / %2$d</string>
 
 
 </resources>
