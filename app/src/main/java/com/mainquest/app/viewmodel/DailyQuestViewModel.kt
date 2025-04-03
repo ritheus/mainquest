@@ -13,12 +13,12 @@ class DailyQuestViewModel : ViewModel() {
 
     private var nextId = 0
 
-    fun addDailyQuest() {
+    fun addDailyQuest(title: String, description: String, reward: Int) {
         val newQuest = DailyQuest(
             id = nextId++,
-            title = "New Daily Quest",
-            reward = 1,
-            description = "asdf"
+            title = title,
+            reward = reward,
+            description = description
         )
         _dailyQuests.value = _dailyQuests.value + newQuest
     }

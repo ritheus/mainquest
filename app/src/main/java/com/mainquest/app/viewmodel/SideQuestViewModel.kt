@@ -13,12 +13,12 @@ class SideQuestViewModel : ViewModel() {
 
     private var nextId = 0
 
-    fun addSideQuest() {
+    fun addSideQuest(title: String, description: String, reward: Int) {
         val newQuest = SideQuest(
             id = nextId++,
-            title = "New Quest #$nextId",
-            reward = 3,
-            description = ""
+            title = title,
+            reward = reward,
+            description = description
         )
         _sideQuests.value = _sideQuests.value + newQuest
     }
