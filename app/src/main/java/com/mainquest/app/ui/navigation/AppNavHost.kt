@@ -8,10 +8,10 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.mainquest.app.ui.screen.CharacterScreen
-import com.mainquest.app.ui.screen.DailyQuestsScreen
-import com.mainquest.app.ui.screen.MainQuestScreen
-import com.mainquest.app.ui.screen.SideQuestsScreen
+import com.mainquest.app.ui.screens.CharacterScreen
+import com.mainquest.app.ui.screens.DailyQuestsScreen
+import com.mainquest.app.ui.screens.MainQuestScreen
+import com.mainquest.app.ui.screens.SideQuestsScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -22,7 +22,7 @@ fun AppNavHost() {
         BottomNavItem.MainQuest,
         BottomNavItem.SideQuests,
         BottomNavItem.DailyQuests,
-        BottomNavItem.History
+        BottomNavItem.Character
     )
 
     Scaffold(
@@ -48,7 +48,7 @@ fun AppNavHost() {
                     onNavigateToMainQuest = { navController.navigate(BottomNavItem.MainQuest.route) }
                 )
             }
-            composable(BottomNavItem.History.route) {
+            composable(BottomNavItem.Character.route) {
                 CharacterScreen(
                     onNavigateToMainQuest = { navController.navigate(BottomNavItem.MainQuest.route) }
                 )

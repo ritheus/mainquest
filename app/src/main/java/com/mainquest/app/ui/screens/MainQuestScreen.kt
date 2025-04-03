@@ -1,4 +1,4 @@
-package com.mainquest.app.ui.screen
+package com.mainquest.app.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.mainquest.app.R
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.mainquest.app.viewmodel.MainQuestViewModel
 import kotlinx.coroutines.launch
 
 @Composable

@@ -1,4 +1,4 @@
-package com.mainquest.app.ui.screen
+package com.mainquest.app.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
@@ -12,8 +12,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.mainquest.app.R
-import com.mainquest.app.model.Quest
 import com.mainquest.app.ui.components.QuestLog
+import com.mainquest.app.viewmodel.DailyQuestViewModel
 
 @Composable
 fun DailyQuestsScreen(
@@ -46,11 +46,6 @@ fun DailyQuestsScreen(
                     viewModel.updateQuest(updated)
                 }
             )
-            Spacer(Modifier.height(32.dp))
-
-            Button(onClick = onNavigateToMainQuest) {
-                Text(stringResource(R.string.back_to_main_quest))
-            }
         }
     }
 }

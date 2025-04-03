@@ -1,9 +1,8 @@
-package com.mainquest.app.ui.screen
+package com.mainquest.app.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.mainquest.app.model.DailyQuest
 import com.mainquest.app.model.Quest
-import com.mainquest.app.model.SideQuest
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 

@@ -1,4 +1,4 @@
-package com.mainquest.app.ui.screen
+package com.mainquest.app.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel

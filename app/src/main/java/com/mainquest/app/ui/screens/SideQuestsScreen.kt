@@ -1,4 +1,4 @@
-package com.mainquest.app.ui.screen
+package com.mainquest.app.ui.screens
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -8,9 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import com.mainquest.app.R
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExtendedFloatingActionButton
-import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -21,8 +19,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.mainquest.app.model.Quest
 import com.mainquest.app.ui.components.QuestLog
+import com.mainquest.app.viewmodel.SideQuestViewModel
 
 
 @Composable
@@ -56,12 +54,6 @@ fun SideQuestsScreen(
                     viewModel.updateQuest(updated)
                 }
             )
-
-            Spacer(Modifier.height(32.dp))
-
-            Button(onClick = onNavigateToMainQuest) {
-                Text(stringResource(R.string.back_to_main_quest))
-            }
         }
     }
 }
